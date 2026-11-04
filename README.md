@@ -125,7 +125,7 @@ USER node
 > **Settings → Community Nodes** (Option A) or into the volume itself instead.
 
 Use the latest version shown on the package's npm page (for example
-`0.1.0`).
+`0.1.1`).
 
 Community package installs are enabled by default on recent n8n versions;
 if yours has it disabled, set `N8N_COMMUNITY_PACKAGES_ENABLED=true` in the
@@ -477,5 +477,7 @@ Found a security vulnerability instead? Report it privately to
 
 ## Version history
 
-- **0.1.0** (2026-11-03) — first public release. See
-  [CHANGELOG.md](CHANGELOG.md) for details.
+- **0.1.1** (2026-11-04) — first version published to npm. Same features
+  as 0.1.0, with the package marked public so npm accepts it.
+- **0.1.0** (2026-11-03) — first public release (tagged, never published to
+  npm). See [CHANGELOG.md](CHANGELOG.md) for details.

@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-connecttoteams-connector",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "ConnecttoTeams SMS Connector — send outbound SMS, receive SMS from ConnecttoTeams, and relay messages into ConnecttoTeams conversations, in n8n.",
   "license": "MIT",
   "homepage": "https://github.com/TeamMateTechnology/n8n-nodes-connecttoteams-connector",
@@ -19,7 +19,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/TeamMateTechnology/n8n-nodes-connecttoteams-connector.git"
+    "url": "git+https://github.com/TeamMateTechnology/n8n-nodes-connecttoteams-connector.git"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "build": "n8n-node build",

@@ -6,6 +6,13 @@ All notable changes to `n8n-nodes-connecttoteams-connector`.
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-11-04
+
+### Fixed
+- First version published to npm. 0.1.0 was tagged but never reached npm:
+  its publish failed because the package wasn't marked public, which npm
+  requires to attach provenance to a new package.
+
 ## [0.1.0] - 2026-11-03
 
 ### Added
