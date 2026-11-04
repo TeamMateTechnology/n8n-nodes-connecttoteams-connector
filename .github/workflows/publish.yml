@@ -1,0 +1,59 @@
+# Publishes the package to npm with provenance when a "v<version>" tag is
+# pushed. Copied into the public repo by scripts/release/sync-public.js in the
+# dev repo; edit it there, not in the public repo.
+
+name: Publish
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions: {}
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    # Waits for a required reviewer to approve before anything runs.
+    environment: npm
+    permissions:
+      id-token: write # npm provenance and trusted publishing
+      contents: read
+
+    # Actions are pinned to commits, so a moved tag can't change what publishes.
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Require the tag to be on main
+        run: |
+          git fetch --quiet origin main
+          git merge-base --is-ancestor "$GITHUB_SHA" origin/main || {
+            echo "::error::Tag $GITHUB_REF_NAME is not on main."
+            exit 1
+          }
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+          cache: 'npm'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check version, tag and changelog
+        run: node scripts/release/check-release.js --tag "$GITHUB_REF_NAME" --npm
+
+      - name: Run tests
+        run: npm test
+
+      # Lints, builds and runs `npm publish` with provenance. Uses npm trusted
+      # publishing; NPM_TOKEN is only needed for the very first publish, before
+      # the package exists on npm (delete the secret afterwards).
+      - name: Publish
+        run: npm run release
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

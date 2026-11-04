@@ -1,0 +1,30 @@
+{
+	"node": "n8n-nodes-connecttoteams-connector.connecttoTeams",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Communication"],
+	"resources": {
+		"primaryDocumentation": [
+			{
+				"url": "https://github.com/TeamMateTechnology/n8n-nodes-connecttoteams-connector#readme"
+			}
+		]
+	},
+	"alias": [
+		"ConnecttoTeams",
+		"Connect to Teams",
+		"SMS",
+		"MMS",
+		"Teams",
+		"Send SMS",
+		"Send text",
+		"Group SMS",
+		"Group text",
+		"Inbound SMS",
+		"Relay",
+		"Receive SMS",
+		"Delivery receipt",
+		"DLR",
+		"Delivery report"
+	]
+}

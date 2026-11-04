@@ -1,0 +1,14 @@
+{
+	"node": "n8n-nodes-connecttoteams-connector.connecttoTeamsTrigger",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Communication"],
+	"resources": {
+		"primaryDocumentation": [
+			{
+				"url": "https://github.com/TeamMateTechnology/n8n-nodes-connecttoteams-connector#readme"
+			}
+		]
+	},
+	"alias": ["ConnecttoTeams", "Connect to Teams", "SMS", "Teams", "Webhook", "Generic carrier", "Outbound SMS"]
+}

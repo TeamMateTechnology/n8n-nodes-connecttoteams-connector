@@ -1,0 +1,71 @@
+{
+  "name": "n8n-nodes-connecttoteams-connector",
+  "version": "0.1.0",
+  "description": "ConnecttoTeams SMS Connector — send outbound SMS, receive SMS from ConnecttoTeams, and relay messages into ConnecttoTeams conversations, in n8n.",
+  "license": "MIT",
+  "homepage": "https://github.com/TeamMateTechnology/n8n-nodes-connecttoteams-connector",
+  "keywords": [
+    "n8n-community-node-package",
+    "n8n",
+    "connecttoteams",
+    "sms",
+    "mms",
+    "text-messaging",
+    "webhook"
+  ],
+  "author": {
+    "name": "ConnecttoTeams",
+    "email": "support@connecttoteams.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TeamMateTechnology/n8n-nodes-connecttoteams-connector.git"
+  },
+  "scripts": {
+    "build": "n8n-node build",
+    "build:watch": "tsc --watch",
+    "dev": "n8n-node dev",
+    "lint": "n8n-node lint",
+    "lint:fix": "n8n-node lint --fix",
+    "test": "jest",
+    "release": "node scripts/release/ci-only.js && n8n-node release",
+    "prepublishOnly": "n8n-node prerelease"
+  },
+  "files": [
+    "dist",
+    "!dist/**/*.tsbuildinfo",
+    "!dist/**/*.map",
+    "!dist/docs/**",
+    "!dist/nodes/ConnecttoTeamsConnector/connecttoteams-logo.png"
+  ],
+  "auto-changelog": {
+    "hideCredit": true,
+    "commitLimit": false,
+    "commitPattern": "^(Release|Version) "
+  },
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "strict": true,
+    "credentials": [
+      "dist/credentials/ConnecttoTeamsConnectorApi.credentials.js",
+      "dist/credentials/ConnecttoTeamsGatewayApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/ConnecttoTeamsConnector/ConnecttoTeams/ConnecttoTeams.node.js",
+      "dist/nodes/ConnecttoTeamsConnector/ConnecttoTeamsTrigger/ConnecttoTeamsTrigger.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@n8n/node-cli": "0.23.0",
+    "@types/jest": "^30.0.0",
+    "eslint": "9.32.0",
+    "jest": "^30.5.1",
+    "prettier": "3.6.2",
+    "release-it": "^19.0.4",
+    "ts-jest": "^29.4.12",
+    "typescript": "5.9.2"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}
